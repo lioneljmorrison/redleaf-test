@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css');
+@import url('https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.min.css');
+
+// @import "~bootstrap/scss/bootstrap.scss";
+
+@import '~adminator/src/assets/styles/spec/settings/index';
+@import '~adminator/src/assets/styles/spec/tools/index';
+@import "~bootstrap/scss/bootstrap";
+@import '~adminator/src/assets/styles/spec/index';
+
+@import "~@progress/kendo-theme-default/scss/all";
+
+body { font-family: "RobotoRegular",Helvetica,Arial,sans-serif; font-size: 14px; margin: 0; }
+
+app-root > .k-icon.k-i-loading { font-size: 64px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
