@@ -21,7 +21,7 @@ describe('AuthenticationService', () => {
     const service: AuthenticationService = TestBed.get(AuthenticationService);
     const user = MockUsers[0];
     service.login(user.email, user.password);
-    expect(service.authenticated$.value).toBeTruthy
+    expect(service.authenticated$.value).toBeTruthy();
   });
 
   it('should not login with incorrect credentials', () => {

@@ -1,4 +1,4 @@
-import { IUser } from "../models/user";
+import { IUser } from '../models/user';
 
 class MockUser implements IUser {
     constructor(public name: string, public email: string, public password: string) { }

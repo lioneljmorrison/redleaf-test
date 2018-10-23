@@ -11,9 +11,13 @@ export class AuthenticationService {
 
   constructor() { }
 
-  login(email: string, password: string): Observable<IUser> {
-    const match = MockUsers.find(m => m.email == email && m.password == password) || undefined;
+  // Changed == (equals) to use the faster === (equality) operator. We are only interested in evaluating
+  // strings, so there is no need to use string interpolation.
+
+  // Modified login() use use the existing IUser interface
+  login(loginObj: IUser): Observable<IUser> {
+    const match = MockUsers.find(m => m.email === loginObj.email && m.password === loginObj.password) || undefined;
     this.authenticated$.next(match);
-    return of(match)
+    return of(match);
   }
 }
