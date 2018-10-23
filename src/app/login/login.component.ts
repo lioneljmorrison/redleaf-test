@@ -1,9 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MockUsers} from '../mock-data/users';
 import {IUser} from '../models/user';
-import {subscribeToObservable} from 'rxjs/internal-compatibility';
 import {AuthenticationService} from '../services/authentication.service';
-import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 
 @Component({
