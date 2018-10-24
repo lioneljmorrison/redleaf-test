@@ -1,32 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { State } from '@progress/kendo-data-query';
-import { GridDataResult } from '@progress/kendo-angular-grid';
-import {DataStoreService} from '../services/data-store.service';
+import {Subscription} from 'rxjs';
 import {IOffice} from '../models/office';
-import {Observable} from 'rxjs';
-import { from } from 'rxjs';
-import {map} from 'rxjs/operators';
+import {MockOffices} from '../mock-data/offices';
+import {DataStoreService} from '../services/data-store.service';
 
 @Component({
   selector: 'app-offices',
   templateUrl: './offices.component.html',
   styleUrls: ['./offices.component.scss']
 })
-export class OfficesComponent implements OnInit {
-  view: Observable<any>;
+export class OfficesComponent implements OnInit, OnDestroy {
+  gridData: any[] = MockOffices;
   state: State = { skip: 0, take: 5 };
 
-  officeObs = new DataStoreService;
+  officeObsSubscription: Subscription;
 
-
-  // Observables always give my issues. But my time is up. So, I have to stop here.
   constructor() {
-    this.officeObs.getOffices().subscribe(value =>  {
-        this.view = value;
-      })
-    );
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.officeObsSubscription.unsubscribe();
   }
 }

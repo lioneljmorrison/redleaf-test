@@ -18,15 +18,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   mockUser: IUser = MockUsers[0];
   error = false;
 
-  loginObsSubscription: Subscription
+  loginObsSubscription: Subscription;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  ngOnDestory() {
-    console.log('destory');
+  ngOnDestroy() {
     this.loginObsSubscription.unsubscribe();
   }
 
@@ -47,6 +46,4 @@ export class LoginComponent implements OnInit, OnDestroy {
       })
     );
   }
-
-
 }

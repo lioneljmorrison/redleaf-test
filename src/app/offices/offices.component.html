@@ -431,25 +431,19 @@
         <div class="full-container">
 
           <div class="grid-wrapper">
-            <kendo-grid
-              [data]="view | async"
-              [pageSize]="state.take"
-              [skip]="state.skip"
-              <!--[sort]="state.sort"-->
-              <!--[sortable]="true"-->
-              <!--[pageable]="true"-->
-              <!--[scrollable]="'none'"-->
-              <!--(dataStateChange)="dataStateChange($event)"-->
-            >
-              <kendo-grid-column field="CategoryID" width="100"></kendo-grid-column>
-              <kendo-grid-column field="CategoryName" width="200"></kendo-grid-column>
-              <kendo-grid-column field="Description">
-              </kendo-grid-column>
+            <kendo-grid [data]="gridData"
+                        [pageSize]="state.take"
+                        [skip]="state.skip"
+                        [sort]="state.sort"
+                        [sortable]="true"
+                        [pageable]="true"
+                        [scrollable]="'none'">
+              <kendo-grid-column title="Name" field="name"></kendo-grid-column>
+              <kendo-grid-column title="Location" field="location"></kendo-grid-column>
+              <kendo-grid-column title="Sales YTD" field="total_sales_ytd"></kendo-grid-column>
             </kendo-grid>
             <!--<div *ngIf="view.loading" class="k-i-loading"></div>-->
           </div>
-
-
         </div>
       </div>
     </main>
