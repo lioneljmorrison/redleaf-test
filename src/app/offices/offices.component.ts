@@ -11,12 +11,23 @@ import {DataStoreService} from '../services/data-store.service';
   styleUrls: ['./offices.component.scss']
 })
 export class OfficesComponent implements OnInit, OnDestroy {
-  gridData: any[] = MockOffices;
+  gridData: any[];
+  loading = true;
   state: State = { skip: 0, take: 5 };
 
   officeObsSubscription: Subscription;
 
   constructor() {
+    const officeObs = new DataStoreService;
+
+    this.officeObsSubscription = officeObs.getOffices().subscribe(
+      (data) =>  {
+        this.gridData = data;
+        this.loading = false;
+        },
+      (error: string) => { /** do something useful */ },
+      () => { /** do something useful */ }
+    );
   }
 
   ngOnInit() {
